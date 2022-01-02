@@ -3,26 +3,22 @@ import React, { useState,useEffect,useReducer,useMemo,useCallback ,memo} from 'r
 function App() {
   const [count, dispathCount] = useReducer( (state,action)=>{
     switch (action.type) {
-      case 'add':return count+1;
-      case 'minus':return count-1;
+      case 'add':return state+1;//这里不能用count，要用state
+      case 'minus':return state-1;
       default: return state
     }
   } , 0 )
   const [name, setName] = useState('jokcy')
 
-  const config = useMemo(() => {
-    return {
+  const config ={
       text:`count is ${count}`,
       color:count>3?'red':'blue'
     }
-  }, [count])
 
-  const handleButtonClick = useCallback(
-    () => {
+
+  const handleButtonClick = () => {
       dispathCount({type:'add'})
-    },
-    [],
-  )
+    }
 
   return (
     <div className="App">
