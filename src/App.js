@@ -14,9 +14,10 @@ function App() {
   const [num, numDispatch] = useReducer(countReducer, 0)
   
   useEffect(() => {
-    // const interval = setInterval( ()=>{
-    //   setcount(count+1)
-    // },1000 )
+    const interval = setInterval( ()=>{
+      // setcount(count+1)
+      setcount(count=>count+1)
+    },1000 )
     return () => {
       
     };
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className="App">
       {num}
+      <div>{count}</div>
       <button onClick={add}>add</button>
     </div>
   );
