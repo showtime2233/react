@@ -3,8 +3,8 @@ import React, { useState,useEffect,useReducer,useMemo,useCallback ,memo} from 'r
 function App() {
   const [count, dispathCount] = useReducer( (state,action)=>{
     switch (action.type) {
-      case 'add':return count+1;
-      case 'minus':return count-1;
+      case 'add':return state+1;
+      case 'minus':return state-1;
       default: return state
     }
   } , 0 )
