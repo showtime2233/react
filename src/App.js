@@ -1,27 +1,21 @@
 import React, { useState,useEffect,useReducer } from 'react';
 
 function App() {
-  const [count, setcount] = useState(0)
+  const [count, dispathCount] = useReducer( (state,dispath)=>{
+    
+  } ,0 )
+  const [name, setName] = useState('jokcy')
 
-  
-  useEffect(() => {
-    const interval = setInterval( ()=>{
-      setcount(count+1)
-      // setcount(count=>count+1)
-    },1000 )
-    return () => {
-      
-    };
-  }, [])
-
-  let add = ()=>{
-    setcount(10)
-  }
+  const handleButtonClick = useCallback(
+    () => {
+      dispathCount
+    },
+    [],
+  )
 
   return (
     <div className="App">
-      <div>{count}</div>
-      <button onClick={add}>add</button>
+      <input type="text" value={name} onChange={} />
     </div>
   );
 }
